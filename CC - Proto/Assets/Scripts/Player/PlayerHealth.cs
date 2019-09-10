@@ -74,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
 
         playerShooting.DisableEffects ();
 
-        animate.SetTrigger ("Dead");         //play death animation
+        animate.SetTrigger ("Die");         //play death animation
 
         playerAudio.clip = deathClip;       //play audio death clip
         playerAudio.Play ();
