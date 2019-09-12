@@ -2,11 +2,11 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 6f;            // The speed that the player will move at.
+    public float PlayerSpeed = 6f;            // The PlayerSpeed that the player will move at.
 
     Vector3 movement;                   // The vector to store the direction of the player's movement.
-    Animator anim;                      // Reference to the animator component.
-    Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
+    Animator animate;                      // Reference to the animator component.
+    Rigidbody PlayerRigidbody;          // Reference to the player's rigidbody.
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
     float camRayLength = 100f;          // The length of the ray from the camera into the scene.
 
@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
         floorMask = LayerMask.GetMask("Floor");
 
         // Set up references.
-        anim = GetComponent<Animator>();
-        playerRigidbody = GetComponent<Rigidbody>();
+        animate = GetComponent<Animator>();
+        PlayerRigidbody = GetComponent<Rigidbody>();
     }
 
 
@@ -42,11 +42,11 @@ public class PlayerMovement : MonoBehaviour
         // Set the movement vector based on the axis input.
         movement.Set(h, 0f, v);
 
-        // Normalise the movement vector and make it proportional to the speed per second.
-        movement = movement.normalized * speed * Time.deltaTime;
+        // Normalise the movement vector and make it proportional to the PlayerSpeed per second.
+        movement = movement.normalized * PlayerSpeed * Time.deltaTime;
 
         // Move the player to it's current position plus the movement.
-        playerRigidbody.MovePosition(transform.position + movement);
+        PlayerRigidbody.MovePosition(transform.position + movement);
     }
 
     void Turning()
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
 
             // Set the player's rotation to this new rotation.
-            playerRigidbody.MoveRotation(newRotation);
+            PlayerRigidbody.MoveRotation(newRotation);
         }
     }
 
@@ -80,6 +80,6 @@ public class PlayerMovement : MonoBehaviour
         bool walking = h != 0f || v != 0f;
 
         // Tell the animator whether or not the player is walking.
-        anim.SetBool("IsWalking", walking);
+        animate.SetBool("IsWalking", walking);
     }
 }
