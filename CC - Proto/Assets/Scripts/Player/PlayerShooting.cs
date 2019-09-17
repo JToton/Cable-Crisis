@@ -15,6 +15,10 @@ public class PlayerShooting : MonoBehaviour
     AudioSource gunAudio;                           //Audio source
     Light gunLight;                                 //Reference to the light component
     float effectsDisplayTime = 0.2f;                //The proportion of the timeBetweenBullets that the effects will display for
+    public bool isFiring = false;                     //is the gun currently firing
+
+    //public bool batteryInRange = false;
+    //public bool batteryLevel   = false;
 
     void Awake()
     {
@@ -36,6 +40,8 @@ public class PlayerShooting : MonoBehaviour
         {
             //shoot
             Shoot();
+
+           
         }
 
         //If the timer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for
@@ -54,6 +60,8 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
+        isFiring = true;        //the player is shooting
+
         timer = 0f;     //Reset the timer
 
         gunAudio.Play();  //audio play
@@ -71,6 +79,8 @@ public class PlayerShooting : MonoBehaviour
         //Set the shootRay so that it starts at the end of the gun and points forward from the barrel
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward;
+
+        //isFiring = false;
 
         //Perform the raycast against gameobjects on the shootable layer and if it hits something
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))

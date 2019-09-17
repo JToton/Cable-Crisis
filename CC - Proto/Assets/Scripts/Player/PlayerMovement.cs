@@ -1,14 +1,29 @@
 ﻿using UnityEngine;
+[RequireComponent(typeof(LineRenderer))]
 
 public class PlayerMovement : MonoBehaviour
 {
     public float PlayerSpeed = 6f;            // The PlayerSpeed that the player will move at.
+    public float PlayerSprint = 8f;
 
+    public GameObject startObject;  //e.g. the player
+    public GameObject endObject;    //e.g. the battery
+
+    private LineRenderer tether;
+    Color c1 = Color.white;
+    Color c2 = new Color(1, 1, 1, 0);
+
+
+    GameObject battery;
     Vector3 movement;                   // The vector to store the direction of the player's movement.
     Animator animate;                      // Reference to the animator component.
     Rigidbody PlayerRigidbody;          // Reference to the player's rigidbody.
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
     float camRayLength = 100f;          // The length of the ray from the camera into the scene.
+
+    public bool batteryInRange;
+
+    public bool tetherOn;
 
     void Awake()
     {
@@ -18,8 +33,40 @@ public class PlayerMovement : MonoBehaviour
         // Set up references.
         animate = GetComponent<Animator>();
         PlayerRigidbody = GetComponent<Rigidbody>();
+
+        battery = GameObject.FindGameObjectWithTag("battery");
+
+        tether = GetComponent<LineRenderer>();
+        tether.material = new Material(Shader.Find("Sprites/Default"));
+        tether.SetColors(c1, c2);
     }
 
+    
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == battery)  //check what to attack -- make sure its the player --
+        {
+            batteryInRange = true;  //set in range to attack
+            createTether();
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject == battery)
+        {
+            batteryInRange = true;  //set to no longer in range to attack
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == battery)
+        {
+            batteryInRange = false;  //set to no longer in range to attack
+            disableTether();
+        }
+    }
 
     void FixedUpdate()
     {
@@ -35,6 +82,16 @@ public class PlayerMovement : MonoBehaviour
 
         // Animate the player.
         Animating(h, v);
+
+        if (tetherOn == true)
+        {
+            tether.SetPosition(0, PlayerRigidbody.transform.position);
+            tether.SetPosition(1, battery.transform.position);
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            Sprint(h,v);
+        }
     }
 
     void Move(float h, float v)
@@ -44,6 +101,18 @@ public class PlayerMovement : MonoBehaviour
 
         // Normalise the movement vector and make it proportional to the PlayerSpeed per second.
         movement = movement.normalized * PlayerSpeed * Time.deltaTime;
+
+        // Move the player to it's current position plus the movement.
+        PlayerRigidbody.MovePosition(transform.position + movement);
+    }
+
+    void Sprint(float h, float v)
+    {
+        // Set the movement vector based on the axis input.
+        movement.Set(h, 0f, v);
+
+        // Normalise the movement vector and make it proportional to the PlayerSpeed per second.
+        movement = movement.normalized * PlayerSprint * Time.deltaTime;
 
         // Move the player to it's current position plus the movement.
         PlayerRigidbody.MovePosition(transform.position + movement);
@@ -81,5 +150,20 @@ public class PlayerMovement : MonoBehaviour
 
         // Tell the animator whether or not the player is walking.
         animate.SetBool("IsWalking", walking);
+    }
+
+    void createTether()
+    {
+        tether.enabled = true;
+        tetherOn = true;
+        tether.SetPosition(0, PlayerRigidbody.transform.position);
+        tether.SetPosition(1, battery.transform.position);
+        //SetPosition(0, transform.position);
+    }
+
+    public void disableTether()
+    {
+        tether.enabled = false;
+        tetherOn = false;
     }
 }
