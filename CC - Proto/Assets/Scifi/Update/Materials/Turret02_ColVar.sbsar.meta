@@ -1,12 +1,21 @@
 fileFormatVersion: 2
 guid: fbb2a6149abae6e4093c3c7670ff86d7
 ScriptedImporter:
-  fileIDToRecycleName:
-    2100000: Turret02_ColVar
-    2800000: Turret02_ColVar - baseColor
-    11400000: sbsar
-    11400002: graph0
+  internalIDToNameTable:
+  - first:
+      21: 2100000
+    second: Turret02_ColVar
+  - first:
+      28: 2800000
+    second: Turret02_ColVar - baseColor
+  - first:
+      114: 11400000
+    second: sbsar
+  - first:
+      114: 11400002
+    second: graph0
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 

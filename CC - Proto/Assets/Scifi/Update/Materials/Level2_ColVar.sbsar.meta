@@ -1,12 +1,21 @@
 fileFormatVersion: 2
 guid: 03780eb7c807a534baf4e540ba0e9ff2
 ScriptedImporter:
-  fileIDToRecycleName:
-    2100000: Details_ColVar
-    2800000: Details_ColVar - baseColor
-    11400000: sbsar
-    11400002: graph0
+  internalIDToNameTable:
+  - first:
+      21: 2100000
+    second: Details_ColVar
+  - first:
+      28: 2800000
+    second: Details_ColVar - baseColor
+  - first:
+      114: 11400000
+    second: sbsar
+  - first:
+      114: 11400002
+    second: graph0
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
