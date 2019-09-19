@@ -10463,6 +10463,7 @@ MonoBehaviour:
   endObject: {fileID: 0}
   batteryInRange: 0
   tetherOn: 0
+  controller: 0
 --- !u!114 &1907082535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10483,6 +10484,19 @@ MonoBehaviour:
   deadBatteryClip: {fileID: 8300000, guid: 6350679464993cd49ae5fb07e69b4357, type: 3}
   batteryDrain: 10
   batteryGain: 20
+--- !u!114 &1907082536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907082527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049a0012ac4678346a36dbde72d82bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1907082534}
 --- !u!1001 &1937588929
 PrefabInstance:
   m_ObjectHideFlags: 0

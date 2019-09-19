@@ -17,6 +17,7 @@ public class PlayerShooting : MonoBehaviour
     float effectsDisplayTime = 0.2f;                //The proportion of the timeBetweenBullets that the effects will display for
     public bool isFiring = false;                     //is the gun currently firing
 
+    float trigger;
     //public bool batteryInRange = false;
     //public bool batteryLevel   = false;
 
@@ -35,8 +36,18 @@ public class PlayerShooting : MonoBehaviour
     {
         timer += Time.deltaTime;    // Add the time since Update was last called to the timer.
 
-        
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets)    // If the Fire1 button is being press and it's time to fire
+        trigger = Input.GetAxis("Triggers");
+
+        if (Input.GetButton("Fire1"))
+        {
+            trigger = 1;
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            trigger = 0;
+        }
+
+        if (trigger > 0 && timer >= timeBetweenBullets)    // If the Fire1 button is being press and it's time to fire
         {
             //shoot
             Shoot();
