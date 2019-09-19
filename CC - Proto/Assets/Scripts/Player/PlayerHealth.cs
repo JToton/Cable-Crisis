@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             //smoothing from color to transparent
-            damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
         //reset
         damaged = false;

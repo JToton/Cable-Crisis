@@ -6,11 +6,11 @@ public class PlayerBattery : MonoBehaviour
     public int maximumBatteryCap = 100;     //max capacity
     public int minimumBatteryCap = 0;
     public int startingBattery = 100;       //starting health when the level starts
-    public int currentBattery;              //hp current
+    public float currentBattery;              //hp current
     public Slider BatterySlider;            //slider UI element
     public AudioClip deadBatteryClip;      //death audio clip (Dead Battery)
     public int batteryDrain = 10;
-    public int batteryGain = 10;
+    public float batteryGain = 10f;
 
 
     Animator animate;                  //animator components
@@ -72,7 +72,7 @@ public class PlayerBattery : MonoBehaviour
         }
     }
 
-    public void GainBattery(int amount)
+    public void GainBattery(float amount)
     {
         if(currentBattery < maximumBatteryCap)
         {

@@ -13,7 +13,8 @@ public class EnemyHealth : MonoBehaviour
     AudioSource enemyAudio;
     ParticleSystem hitParticles;        //prefab child object
     CapsuleCollider capsuleCollider;    //colider
-    bool isDead;
+    EnemyManager enemyManager;          //reference the other script
+    public bool isDead;
     bool isSinking;
 
 
@@ -23,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio = GetComponent <AudioSource> ();                 //
         hitParticles = GetComponentInChildren <ParticleSystem> ();  //get children and return particle system
         capsuleCollider = GetComponent <CapsuleCollider> ();
+        enemyManager = GetComponentInChildren<EnemyManager>();
 
         currentHealth = startingHealth;  //set health
     }
