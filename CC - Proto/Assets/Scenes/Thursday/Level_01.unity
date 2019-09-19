@@ -5076,15 +5076,15 @@ Transform:
   m_Children:
   - {fileID: 1399550048}
   - {fileID: 1406989575}
+  - {fileID: 511768972}
   - {fileID: 1462713642}
+  - {fileID: 2107204553}
   - {fileID: 1606052202}
-  - {fileID: 190768901}
   - {fileID: 1067052281}
   - {fileID: 1053849278}
-  - {fileID: 511768972}
   - {fileID: 44761510}
-  - {fileID: 2107204553}
   - {fileID: 1671362601}
+  - {fileID: 190768901}
   - {fileID: 387405361}
   - {fileID: 1124806568}
   - {fileID: 2111433114}
@@ -6724,7 +6724,7 @@ PrefabInstance:
     - target: {fileID: 8305265507160136674, guid: 44a41f2808c5a8443aa58561c4640fae,
         type: 3}
       propertyPath: batteryDrain
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8305265507160136685, guid: 44a41f2808c5a8443aa58561c4640fae,
         type: 3}
