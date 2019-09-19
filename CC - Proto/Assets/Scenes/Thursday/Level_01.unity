@@ -6484,7 +6484,7 @@ PrefabInstance:
     - target: {fileID: 3766517686923311211, guid: 44a41f2808c5a8443aa58561c4640fae,
         type: 3}
       propertyPath: damagePerShot
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 3766517686923311211, guid: 44a41f2808c5a8443aa58561c4640fae,
         type: 3}
@@ -7599,7 +7599,7 @@ PrefabInstance:
     - target: {fileID: 6930161989296600464, guid: 26a9ccad4af87e449bdb31e4ab3cb390,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.58
       objectReference: {fileID: 0}
     - target: {fileID: 6930161989296600464, guid: 26a9ccad4af87e449bdb31e4ab3cb390,
         type: 3}
@@ -7609,7 +7609,7 @@ PrefabInstance:
     - target: {fileID: 6930161989296600464, guid: 26a9ccad4af87e449bdb31e4ab3cb390,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: 6930161989296600464, guid: 26a9ccad4af87e449bdb31e4ab3cb390,
         type: 3}

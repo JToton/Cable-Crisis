@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         tether.SetColors(c1, c2);
     }
 
-    
+    /*
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == battery)  //check what to attack -- make sure its the player --
@@ -52,12 +52,14 @@ public class PlayerMovement : MonoBehaviour
             createTether();
         }
     }
+    */
 
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject == battery)
         {
             batteryInRange = true;  //set to no longer in range to attack
+            createTether();
         }
     }
 
