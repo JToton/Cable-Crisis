@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public GameObject endObject;    //e.g. the battery
 
     private LineRenderer tether;
+    private LineRenderer tether2;
     Color c1 = Color.white;
     Color c2 = new Color(1, 1, 1, 0);
 
 
     GameObject battery;
+    GameObject battery2;
     Vector3 movement;                   // The vector to store the direction of the player's movement.
     Animator animate;                      // Reference to the animator component.
     Rigidbody PlayerRigidbody;          // Reference to the player's rigidbody.
@@ -24,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public bool batteryInRange;
 
     public bool tetherOn;
+    public bool tether2On;
 
     public bool controller;
 
@@ -37,10 +40,15 @@ public class PlayerMovement : MonoBehaviour
         PlayerRigidbody = GetComponent<Rigidbody>();
 
         battery = GameObject.FindGameObjectWithTag("battery");
+        battery2 = GameObject.FindGameObjectWithTag("battery2");
 
         tether = GetComponent<LineRenderer>();
         tether.material = new Material(Shader.Find("Sprites/Default"));
         tether.SetColors(c1, c2);
+
+        tether2 = GetComponent<LineRenderer>();
+        tether2.material = new Material(Shader.Find("Sprites/Default"));
+        tether2.SetColors(c1, c2);
     }
 
     /*
@@ -61,6 +69,12 @@ public class PlayerMovement : MonoBehaviour
             batteryInRange = true;  //set to no longer in range to attack
             createTether();
         }
+        if (other.gameObject == battery2)
+        {
+            batteryInRange = true;  //set to no longer in range to attack
+            createTether2();
+        }
+
     }
 
     void OnTriggerExit(Collider other)
@@ -69,6 +83,11 @@ public class PlayerMovement : MonoBehaviour
         {
             batteryInRange = false;  //set to no longer in range to attack
             disableTether();
+        }
+        if (other.gameObject == battery2)
+        {
+            batteryInRange = false;  //set to no longer in range to attack
+            disableTether2();
         }
     }
 
@@ -93,6 +112,11 @@ public class PlayerMovement : MonoBehaviour
         {
             tether.SetPosition(0, PlayerRigidbody.transform.position);
             tether.SetPosition(1, battery.transform.position);
+        }
+        if (tether2On == true)
+        {
+            tether2.SetPosition(0, PlayerRigidbody.transform.position);
+            tether2.SetPosition(1, battery2.transform.position);
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -182,5 +206,20 @@ public class PlayerMovement : MonoBehaviour
     {
         tether.enabled = false;
         tetherOn = false;
+    }
+
+    void createTether2()
+    {
+        tether2.enabled = true;
+        tether2On = true;
+        tether2.SetPosition(0, PlayerRigidbody.transform.position);
+        tether2.SetPosition(1, battery2.transform.position);
+        //SetPosition(0, transform.position);
+    }
+
+    public void disableTether2()
+    {
+        tether2.enabled = false;
+        tether2On = false;
     }
 }
