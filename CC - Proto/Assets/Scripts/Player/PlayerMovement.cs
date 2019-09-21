@@ -110,8 +110,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (tetherOn == true)
         {
-            tether.SetPosition(0, PlayerRigidbody.transform.position);
-            tether.SetPosition(1, battery.transform.position);
+            tether.SetPosition(1, PlayerRigidbody.transform.position);
+            tether.SetPosition(0, battery.transform.position);
         }
         if (tether2On == true)
         {
@@ -197,8 +197,8 @@ public class PlayerMovement : MonoBehaviour
     {
         tether.enabled = true;
         tetherOn = true;
-        tether.SetPosition(0, PlayerRigidbody.transform.position);
-        tether.SetPosition(1, battery.transform.position);
+        tether.SetPosition(1, PlayerRigidbody.transform.position);
+        tether.SetPosition(0, battery.transform.position);
         //SetPosition(0, transform.position);
     }
 
