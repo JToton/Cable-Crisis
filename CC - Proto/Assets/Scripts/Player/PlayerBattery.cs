@@ -56,7 +56,7 @@ public class PlayerBattery : MonoBehaviour
         //reset
         playerShooting.isFiring = false;
 
-        playerMovement.batteryInRange = false;
+        //playerMovement.batteryInRange = false;
 
 
     }
