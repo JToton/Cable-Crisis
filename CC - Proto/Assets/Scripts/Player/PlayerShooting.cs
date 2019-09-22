@@ -3,8 +3,11 @@
 public class PlayerShooting : MonoBehaviour
 {
     public int damagePerShot = 20;                  //Bullet Damage
+    public int batteryDamagePerShot = 30;           //Bullet Damage when connected to Battery 
     public float timeBetweenBullets = 0.15f;        //Attack Speed
+    public float batteryTimeBetweenBullets = 0.05f; //Attack Speed when connected to Battery
     public float range = 100f;                      //Gun Range
+    public bool isConnected = false;
 
     float timer;                                    //A timer to determine when to fire
     Ray shootRay;                                   //A ray from the gun end forwards
@@ -47,7 +50,7 @@ public class PlayerShooting : MonoBehaviour
             trigger = 0;
         }
 
-        if (trigger > 0 && timer >= timeBetweenBullets)    // If the Fire1 button is being press and it's time to fire
+        if (trigger > 0 && (timer >= timeBetweenBullets || (isConnected && timer >= batteryTimeBetweenBullets)))   // If the Fire1 button is being press and it's time to fire
         {
             //shoot
             Shoot();
@@ -103,7 +106,14 @@ public class PlayerShooting : MonoBehaviour
             if (enemyHealth != null)
             {
                 //the enemy should take damage
-                enemyHealth.TakeDamage(damagePerShot, shootHit.point);
+                if (isConnected)
+                {
+                    enemyHealth.TakeDamage(batteryDamagePerShot, shootHit.point);
+                }
+                else
+                {
+                    enemyHealth.TakeDamage(damagePerShot, shootHit.point);
+                }
             }
 
             //Set the second position of the line renderer to the point the raycast hit

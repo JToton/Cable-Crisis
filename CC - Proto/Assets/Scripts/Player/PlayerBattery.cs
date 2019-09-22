@@ -45,6 +45,14 @@ public class PlayerBattery : MonoBehaviour
         {
             GainBattery(batteryGain);
         }
+        if (playerMovement.batteryInRange)
+        {
+            playerShooting.isConnected = true;
+        }
+        else
+        {
+            playerShooting.isConnected = false;
+        }
         //reset
         playerShooting.isFiring = false;
 
