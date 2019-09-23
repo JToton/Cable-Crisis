@@ -44,11 +44,4 @@ public class PlayerMelee : MonoBehaviour
             timeBetweenSwings -= Time.deltaTime;
         }
     }
-    /*
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPosition.position, attackRange);
-    }
-    */
 }
