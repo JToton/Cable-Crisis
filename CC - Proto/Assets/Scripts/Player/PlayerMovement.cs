@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
     Color c2 = new Color(1, 1, 1, 0);
 
 
+    RaycastHit tetherHit;
+    int shootableMask;
+
+
     GameObject battery;
     GameObject battery2;
     Vector3 movement;                   // The vector to store the direction of the player's movement.
@@ -49,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         tether2 = GetComponent<LineRenderer>();
         tether2.material = new Material(Shader.Find("Sprites/Default"));
         tether2.SetColors(c1, c2);
+
+        shootableMask = LayerMask.GetMask("Shootable");
     }
 
     /*
@@ -200,6 +206,17 @@ public class PlayerMovement : MonoBehaviour
         tether.SetPosition(1, PlayerRigidbody.transform.position);
         tether.SetPosition(0, battery.transform.position);
         //SetPosition(0, transform.position);
+
+
+        if(Physics.Raycast(PlayerRigidbody.transform.position, battery.transform.position - PlayerRigidbody.transform.position, out tetherHit, 7, shootableMask))
+        {
+            
+            EnemyHealth enemyHealth = tetherHit.collider.GetComponent<EnemyHealth>();
+            if(enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(100, tetherHit.point);
+            }
+        }
     }
 
     public void disableTether()
@@ -215,6 +232,15 @@ public class PlayerMovement : MonoBehaviour
         tether2.SetPosition(0, PlayerRigidbody.transform.position);
         tether2.SetPosition(1, battery2.transform.position);
         //SetPosition(0, transform.position);
+
+        if (Physics.Raycast(PlayerRigidbody.transform.position, battery2.transform.position - PlayerRigidbody.transform.position, out tetherHit, 7, shootableMask))
+        {
+            EnemyHealth enemyHealth = tetherHit.collider.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(100, tetherHit.point);
+            }
+        }
     }
 
     public void disableTether2()
