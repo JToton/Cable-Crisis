@@ -6,8 +6,8 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;           //current health            
     public float sinkSpeed = 2.5f;      //speed to sink into the floor
     public int scoreValue = 1;         //score value increase
-    public AudioClip deathClip;         
-
+    public AudioClip deathClip;
+    //public GameObject bloodEffect;
 
     Animator animate;
     AudioSource enemyAudio;
@@ -45,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
             return;  //if enemy is dead return out 
 
         enemyAudio.Play ();
-
+        //Instantiate(bloodEffect, transform.position, Quaternion.identity);
         currentHealth -= amount;
             
         hitParticles.transform.position = hitPoint;
@@ -57,6 +57,19 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    public void TakeMeleeDamage(int amount)
+    {
+        if (isDead)
+            return;
+
+        //Debug.Log("Damage Taken!");
+        enemyAudio.Play();                    //play hurt audio
+        currentHealth -= amount;                //reduce health
+        if (currentHealth <= 0)       //check if dead
+        {
+            Death();                           //call death function
+        }
+    }
 
     void Death ()
     {
