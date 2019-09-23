@@ -14,6 +14,9 @@ public class EnemyAttack : MonoBehaviour
     bool playerInRange;        //range
     float timer;                //snyc up attacks
 
+    EnemyMovement target;
+    bool plugInRange;
+
 
     void Awake ()
     {
@@ -21,6 +24,7 @@ public class EnemyAttack : MonoBehaviour
         playerHealth = player.GetComponent <PlayerHealth> ();   //get the health of the player
         enemyHealth = GetComponent<EnemyHealth>();
         animate = GetComponent <Animator> ();
+        target = GetComponent<EnemyMovement>();
     }
 
     //use sphere trigger colider to detect enemy to player collision
@@ -29,6 +33,11 @@ public class EnemyAttack : MonoBehaviour
         if(other.gameObject == player)  //check what to attack -- make sure its the player --
         {
             playerInRange = true;  //set in range to attack
+        }
+
+        if(other.gameObject.transform.position == target.nearestPlug.transform.position)
+        {
+            plugInRange = true;
         }
     }
 
@@ -39,6 +48,11 @@ public class EnemyAttack : MonoBehaviour
         {
             playerInRange = false;  //set to no longer in range to attack
         }
+
+        if(other.gameObject.transform.position == target.nearestPlug.transform.position)
+        {
+            plugInRange = false;
+        }
     }
 
 
@@ -46,14 +60,24 @@ public class EnemyAttack : MonoBehaviour
     {
         timer += Time.deltaTime;  //how much time has occured?
 
-        if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
+        if (target.target == 1 && target.nearestPlug != null && target.nearestPlug.connected)
         {
-            Attack ();  //if its been long enough between attacks -- attack the player
+            if (timer >= timeBetweenAttacks && plugInRange && enemyHealth.currentHealth > 0)
+            {
+                Attack();
+            }
         }
-
-        if(playerHealth.currentHealth <= 0)
+        else
         {
-            animate.SetTrigger ("PlayerDead");  //player was killed -- take enemy out of moving animation
+            if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
+            {
+                Attack();  //if its been long enough between attacks -- attack the player
+            }
+
+            if (playerHealth.currentHealth <= 0)
+            {
+                animate.SetTrigger("PlayerDead");  //player was killed -- take enemy out of moving animation
+            }
         }
     }
 
@@ -62,9 +86,19 @@ public class EnemyAttack : MonoBehaviour
     {
         timer = 0f;  //reset timer since we attacked
 
-        if(playerHealth.currentHealth > 0)  //attack if the character has health left
+        if (target.target == 1)
         {
-            playerHealth.TakeDamage (attackDamage);  //reference take damage
+            if (target.nearestPlug.health > 0)
+            {
+                //target.nearestPlug.health -= attackDamage;
+            }
+        }
+        else
+        {
+            if (playerHealth.currentHealth > 0)  //attack if the character has health left
+            {
+                playerHealth.TakeDamage(attackDamage);  //reference take damage
+            }
         }
     }
 }

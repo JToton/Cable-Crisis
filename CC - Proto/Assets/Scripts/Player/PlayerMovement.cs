@@ -74,11 +74,13 @@ public class PlayerMovement : MonoBehaviour
         {
             batteryInRange = true;  //set to no longer in range to attack
             createTether();
+            other.gameObject.GetComponent<PlugController>().connected = true;
         }
         if (other.gameObject == battery2)
         {
             batteryInRange = true;  //set to no longer in range to attack
             createTether2();
+            other.gameObject.GetComponent<PlugController>().connected = true;
         }
 
     }
@@ -89,11 +91,13 @@ public class PlayerMovement : MonoBehaviour
         {
             batteryInRange = false;  //set to no longer in range to attack
             disableTether();
+            other.gameObject.GetComponent<PlugController>().connected = false;
         }
         if (other.gameObject == battery2)
         {
             batteryInRange = false;  //set to no longer in range to attack
             disableTether2();
+            other.gameObject.GetComponent<PlugController>().connected = false;
         }
     }
 
