@@ -6533,7 +6533,7 @@ MonoBehaviour:
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 1647689994}
-  totalEnemyAmount: 20
+  totalEnemyAmount: 15
   enemyAmount: 0
   startDelay: 23
 --- !u!1 &360397731 stripped
@@ -11426,7 +11426,7 @@ MonoBehaviour:
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 1035539273}
-  totalEnemyAmount: 20
+  totalEnemyAmount: 15
   enemyAmount: 0
   startDelay: 23
 --- !u!1 &545859331 stripped
@@ -26612,7 +26612,7 @@ MonoBehaviour:
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 1789471022}
-  totalEnemyAmount: 20
+  totalEnemyAmount: 15
   enemyAmount: 0
   startDelay: 23
 --- !u!1001 &1221608405
@@ -29822,7 +29822,7 @@ MonoBehaviour:
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 1147638539}
-  totalEnemyAmount: 20
+  totalEnemyAmount: 15
   enemyAmount: 0
   startDelay: 23
 --- !u!1001 &1386452840
@@ -38201,7 +38201,7 @@ MonoBehaviour:
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 600419826}
-  totalEnemyAmount: 20
+  totalEnemyAmount: 15
   enemyAmount: 0
   startDelay: 23
 --- !u!1001 &1761539758
@@ -42939,7 +42939,7 @@ MonoBehaviour:
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 607799176}
-  totalEnemyAmount: 20
+  totalEnemyAmount: 15
   enemyAmount: 0
   startDelay: 23
 --- !u!1001 &1960197369
