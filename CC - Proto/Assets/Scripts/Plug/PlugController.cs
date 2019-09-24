@@ -9,6 +9,7 @@ public class PlugController : MonoBehaviour
     public float explodeRange = 10f;
     public LayerMask whatIsEnemy;
     public int explosionDamage = 200;
+    public Collider[] enemiesToDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +30,13 @@ public class PlugController : MonoBehaviour
             if (Input.GetKeyDown("t") || Input.GetKeyDown("joystick button 3"))
             {
                 Debug.Log("exploded!");
-                Collider[] enemiesToDamage = Physics.OverlapSphere(transform.position, explodeRange, whatIsEnemy);
+                enemiesToDamage = Physics.OverlapSphere(transform.position, explodeRange, whatIsEnemy);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeMeleeDamage(explosionDamage);
+                    if (enemiesToDamage[i].tag == "enemy")
+                    {
+                        enemiesToDamage[i].GetComponent<EnemyHealth>().TakeMeleeDamage(explosionDamage);
+                    }
                 }
             }
         }

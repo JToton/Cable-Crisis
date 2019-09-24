@@ -418,7 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   connected: 0
-  explodeRange: 5
+  explodeRange: 7
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 1024

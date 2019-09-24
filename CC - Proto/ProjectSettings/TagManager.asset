@@ -7,6 +7,8 @@ TagManager:
   - battery
   - floor
   - battery2
+  - Undefined
+  - enemy
   layers:
   - Default
   - TransparentFX
