@@ -221,8 +221,14 @@ public class PlayerMovement : MonoBehaviour
         tether.SetPosition(0, battery.transform.position);
         //SetPosition(0, transform.position);
 
+        float x = battery.transform.position.x - PlayerRigidbody.transform.position.x;
+        float z = battery.transform.position.z - PlayerRigidbody.transform.position.z;
+        float distance = Mathf.Sqrt((x * x) + (z * z));
 
-        if(Physics.Raycast(PlayerRigidbody.transform.position, battery.transform.position - PlayerRigidbody.transform.position, out tetherHit, 7, shootableMask))
+
+        print(distance);
+
+        if (Physics.Raycast(PlayerRigidbody.transform.position, battery.transform.position - PlayerRigidbody.transform.position, out tetherHit, distance, shootableMask))
         {
             
             EnemyHealth enemyHealth = tetherHit.collider.GetComponent<EnemyHealth>();
@@ -246,8 +252,11 @@ public class PlayerMovement : MonoBehaviour
         tether2.SetPosition(0, PlayerRigidbody.transform.position);
         tether2.SetPosition(1, battery2.transform.position);
         //SetPosition(0, transform.position);
+        float x = battery2.transform.position.x - PlayerRigidbody.transform.position.x;
+        float z = battery2.transform.position.z - PlayerRigidbody.transform.position.z;
+        float distance = Mathf.Sqrt((x * x) + (z * z));
 
-        if (Physics.Raycast(PlayerRigidbody.transform.position, battery2.transform.position - PlayerRigidbody.transform.position, out tetherHit, 7, shootableMask))
+        if (Physics.Raycast(PlayerRigidbody.transform.position, battery2.transform.position - PlayerRigidbody.transform.position, out tetherHit, distance, shootableMask))
         {
             EnemyHealth enemyHealth = tetherHit.collider.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
