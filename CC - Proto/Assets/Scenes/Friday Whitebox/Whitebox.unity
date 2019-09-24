@@ -42356,6 +42356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EmemyManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8131508435019405416, guid: 72b06d61c426b7d4090248dad9661868,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8131508435019405418, guid: 72b06d61c426b7d4090248dad9661868,
         type: 3}
       propertyPath: m_LocalPosition.x
