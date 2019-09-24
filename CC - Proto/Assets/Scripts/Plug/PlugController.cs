@@ -10,11 +10,12 @@ public class PlugController : MonoBehaviour
     public LayerMask whatIsEnemy;
     public int explosionDamage = 200;
     public Collider[] enemiesToDamage;
+    public PlayerMovement player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -38,6 +39,9 @@ public class PlugController : MonoBehaviour
                         enemiesToDamage[i].GetComponent<EnemyHealth>().TakeMeleeDamage(explosionDamage);
                     }
                 }
+                player.disableTether();
+                player.disableTether2();
+                Destroy(gameObject);
             }
         }
     }
