@@ -418,6 +418,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   connected: 0
+  explodeRange: 5
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 1024
+  explosionDamage: 200
 --- !u!1 &6934316841523654394
 GameObject:
   m_ObjectHideFlags: 0
