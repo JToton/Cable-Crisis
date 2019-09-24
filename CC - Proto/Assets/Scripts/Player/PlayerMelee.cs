@@ -39,7 +39,10 @@ public class PlayerMelee : MonoBehaviour
                 Collider[] enemiesToDamage = Physics.OverlapSphere(attackPosition.position, attackRange, whatIsEnemy);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeMeleeDamage(attackDamage);
+                    if (enemiesToDamage[i].tag == "enemy")
+                    {
+                        enemiesToDamage[i].GetComponent<EnemyHealth>().TakeMeleeDamage(attackDamage);
+                    }
                 }
             }
             timeBetweenSwings = startTimeBetweenSwings;
