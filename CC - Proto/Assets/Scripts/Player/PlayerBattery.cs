@@ -37,7 +37,7 @@ public class PlayerBattery : MonoBehaviour
     void Update()
     {
         //if we are damaged set this image to red with 10% opac
-        if (playerShooting.isFiring == true)
+        if (playerShooting.isFiring == true && !playerMovement.batteryInRange)
         {
             LoseBattery(batteryDrain);
         }
