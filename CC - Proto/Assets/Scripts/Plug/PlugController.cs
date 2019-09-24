@@ -6,6 +6,9 @@ public class PlugController : MonoBehaviour
 {
     public int health = 100;
     public bool connected = false;
+    public float explodeRange = 10f;
+    public LayerMask whatIsEnemy;
+    public int explosionDamage = 200;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,19 @@ public class PlugController : MonoBehaviour
         if(health == 0)
         {
             //Destroy(gameObject);
+        }
+
+        if (connected)
+        {
+            if (Input.GetKeyDown("t") || Input.GetKeyDown("joystick button 3"))
+            {
+                Debug.Log("exploded!");
+                Collider[] enemiesToDamage = Physics.OverlapSphere(transform.position, explodeRange, whatIsEnemy);
+                for (int i = 0; i < enemiesToDamage.Length; i++)
+                {
+                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeMeleeDamage(explosionDamage);
+                }
+            }
         }
     }
 }
