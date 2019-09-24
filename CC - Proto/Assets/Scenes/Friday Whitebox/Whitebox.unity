@@ -6549,13 +6549,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 797514533}
-  enemy: {fileID: 5184053156215197410, guid: 20afd8ace7080694284020ba930f7142, type: 3}
+  enemy: {fileID: 2577470661970745595, guid: c3c7481684ad5c04cbe37d768d4d8ad8, type: 3}
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 1647689994}
   totalEnemyAmount: 15
   enemyAmount: 0
-  startDelay: 23
+  startDelay: 25
 --- !u!1 &360397731 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 0a2ea53d5914a97439bd8c7846c9b82a,
@@ -11442,13 +11442,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 797514533}
-  enemy: {fileID: 5184053156215197410, guid: 20afd8ace7080694284020ba930f7142, type: 3}
+  enemy: {fileID: 2577470661970745595, guid: c3c7481684ad5c04cbe37d768d4d8ad8, type: 3}
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 1035539273}
   totalEnemyAmount: 15
   enemyAmount: 0
-  startDelay: 23
+  startDelay: 25
 --- !u!1 &545859331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 0a2ea53d5914a97439bd8c7846c9b82a,
@@ -26673,13 +26673,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 797514533}
-  enemy: {fileID: 5184053156215197410, guid: 20afd8ace7080694284020ba930f7142, type: 3}
+  enemy: {fileID: 2577470661970745595, guid: c3c7481684ad5c04cbe37d768d4d8ad8, type: 3}
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 1789471022}
   totalEnemyAmount: 15
   enemyAmount: 0
-  startDelay: 23
+  startDelay: 25
 --- !u!1001 &1221608405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29883,13 +29883,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 797514533}
-  enemy: {fileID: 5184053156215197410, guid: 20afd8ace7080694284020ba930f7142, type: 3}
+  enemy: {fileID: 2577470661970745595, guid: c3c7481684ad5c04cbe37d768d4d8ad8, type: 3}
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 1147638539}
   totalEnemyAmount: 15
   enemyAmount: 0
-  startDelay: 23
+  startDelay: 25
 --- !u!1001 &1386452840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38277,13 +38277,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 797514533}
-  enemy: {fileID: 5184053156215197410, guid: 20afd8ace7080694284020ba930f7142, type: 3}
+  enemy: {fileID: 2577470661970745595, guid: c3c7481684ad5c04cbe37d768d4d8ad8, type: 3}
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 600419826}
   totalEnemyAmount: 15
   enemyAmount: 0
-  startDelay: 23
+  startDelay: 25
 --- !u!1001 &1761539758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42961,13 +42961,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 797514533}
-  enemy: {fileID: 5184053156215197410, guid: 20afd8ace7080694284020ba930f7142, type: 3}
+  enemy: {fileID: 2577470661970745595, guid: c3c7481684ad5c04cbe37d768d4d8ad8, type: 3}
   spawnTime: 0.4
   spawnPoints:
   - {fileID: 607799176}
   totalEnemyAmount: 15
   enemyAmount: 0
-  startDelay: 23
+  startDelay: 25
 --- !u!1001 &1960197369
 PrefabInstance:
   m_ObjectHideFlags: 0
