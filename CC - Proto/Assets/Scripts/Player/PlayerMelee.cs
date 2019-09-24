@@ -14,6 +14,8 @@ public class PlayerMelee : MonoBehaviour
     public LayerMask whatIsEnemy;
     public float attackRange;
 
+    public float trigger;
+
     /*
     void Awake()
     {
@@ -29,9 +31,11 @@ public class PlayerMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        trigger = Input.GetAxis("Triggers");
+
         if (timeBetweenSwings <= 0){
 
-            if (Input.GetKey(KeyCode.Space)) {
+            if (Input.GetKey(KeyCode.Space) || trigger < 0) {
                 Collider[] enemiesToDamage = Physics.OverlapSphere(attackPosition.position, attackRange, whatIsEnemy);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {

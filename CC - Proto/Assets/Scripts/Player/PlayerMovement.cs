@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool controller;
 
+    public bool sprinting;
+
     void Awake()
     {
         // Create a layer mask for the floor layer.
@@ -128,9 +130,17 @@ public class PlayerMovement : MonoBehaviour
             tether2.SetPosition(0, PlayerRigidbody.transform.position);
             tether2.SetPosition(1, battery2.transform.position);
         }
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKeyDown("joystick button 8"))
         {
-            Sprint(h,v);
+            sprinting = true;
+        }
+        if ((Input.GetKeyUp(KeyCode.LeftShift)) || (h == 0 && v == 0))
+        {
+            sprinting = false;
+        }
+        if (sprinting)
+        {
+            Sprint(h, v);
         }
     }
 
