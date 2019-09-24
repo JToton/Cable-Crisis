@@ -14,6 +14,7 @@ public class EnemyManager2 : MonoBehaviour
 
     public int totalEnemyAmount = 10;
     public int enemyAmount = 0;
+    public float startDelay;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class EnemyManager2 : MonoBehaviour
 
     void Start()
     {
-        Invoke("spawnEnemiesTwo",20f);
+        Invoke("spawnEnemiesTwo", startDelay);
     }
 
     void spawnEnemiesTwo()
